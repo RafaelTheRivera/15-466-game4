@@ -132,6 +132,7 @@ const game_names = [
 	maek.CPP('PlayMode.cpp'),
 	maek.CPP('main.cpp'),
 	maek.CPP('LitColorTextureProgram.cpp'),
+	maek.CPP('TextureProgram.cpp'),
 	//maek.CPP('ColorTextureProgram.cpp'),  //not used right now, but you might want it
 	maek.CPP('Sound.cpp'),
 	maek.CPP('load_wav.cpp'),
@@ -258,15 +259,15 @@ function init_maek() {
 	}
 
 	if (maek.OS === 'windows') {
-		DEFAULT_OPTIONS.CPP = ['cl.exe', '/nologo', '/EHsc', '/Z7', '/std:c++17', '/W4', '/WX', '/MD'];
+		DEFAULT_OPTIONS.CPP = ['cl.exe', '/nologo', '/EHsc', '/Z7', '/std:c++20', '/W4', '/WX', '/MD'];
 		//TODO: could embed manifest to set UTF8 codepage
 		DEFAULT_OPTIONS.LINK = ['link.exe', '/nologo', '/SUBSYSTEM:CONSOLE', '/DEBUG:FASTLINK', '/INCREMENTAL:NO'];
 	} else if (maek.OS === 'linux') {
-		DEFAULT_OPTIONS.CPP = ['g++', '-std=c++17', '-Wall', '-Werror', '-g'];
-		DEFAULT_OPTIONS.LINK = ['g++', '-std=c++17', '-Wall', '-Werror', '-g'];
+		DEFAULT_OPTIONS.CPP = ['g++', '-std=c++20', '-Wall', '-Werror', '-g'];
+		DEFAULT_OPTIONS.LINK = ['g++', '-std=c++20', '-Wall', '-Werror', '-g'];
 	} else if (maek.OS === 'macos') {
-		DEFAULT_OPTIONS.CPP = ['clang++', '-std=c++17', '-Wall', '-Werror', '-g'];
-		DEFAULT_OPTIONS.LINK = ['clang++', '-std=c++17', '-Wall', '-Werror', '-g'];
+		DEFAULT_OPTIONS.CPP = ['clang++', '-std=c++20', '-Wall', '-Werror', '-g'];
+		DEFAULT_OPTIONS.LINK = ['clang++', '-std=c++20', '-Wall', '-Werror', '-g'];
 	}
 
 	//any settings here override 'DEFAULT_OPTIONS':
